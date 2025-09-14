@@ -1,4 +1,4 @@
-// Enhanced 3D Alumni Management System - Production Ready
+// Enhanced 3D Alumni Management System - Final Production Version
 class Enhanced3DAlumniApp {
     constructor() {
         this.currentUser = null;
@@ -484,20 +484,30 @@ class Enhanced3DAlumniApp {
 
     hideLoadingScreen() {
         const loadingScreen = document.getElementById('loadingScreen');
-        if (loadingScreen) {
+        const institutionScreen = document.getElementById('institutionSelection');
+        
+        if (loadingScreen && institutionScreen) {
             setTimeout(() => {
-                loadingScreen.style.opacity = '0';
+                loadingScreen.classList.add('fade-out');
+                institutionScreen.classList.add('show');
+                
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
+                    institutionScreen.classList.remove('hidden');
                 }, 500);
-            }, 1500);
+            }, 2000); // Show loading for 2 seconds
         }
     }
 
     showInstitutionSelection() {
         // Always show institution selection first
-        document.getElementById('institutionSelection').classList.remove('hidden');
-        document.getElementById('mainApp').classList.add('hidden');
+        const institutionScreen = document.getElementById('institutionSelection');
+        const mainApp = document.getElementById('mainApp');
+        
+        if (institutionScreen && mainApp) {
+            institutionScreen.classList.remove('hidden');
+            mainApp.classList.add('hidden');
+        }
     }
 
     renderInstitutions(institutions = this.punjabInstitutions) {
@@ -535,7 +545,7 @@ class Enhanced3DAlumniApp {
             <div class="event-card animate-fade-in">
                 <div class="event-header">
                     <div class="event-icon">${event.image}</div>
-                    <div class="event-badge ${event.urgentHiring ? 'urgent' : ''}">${event.type.toUpperCase()}</div>
+                    <div class="event-badge">${event.type.toUpperCase()}</div>
                 </div>
                 <h3>${event.title}</h3>
                 <div class="event-details">
@@ -1133,7 +1143,7 @@ class Enhanced3DAlumniApp {
         const donorPhone = document.getElementById('donorPhone').value;
         const donorPAN = document.getElementById('donorPAN').value;
         const purpose = document.getElementById('donationPurpose').value;
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
         
         let amount = 0;
         
@@ -1143,7 +1153,7 @@ class Enhanced3DAlumniApp {
                 : parseInt(selectedAmountBtn.dataset.amount || 0);
         }
         
-        if (!donorName || !donorEmail || !purpose) {
+        if (!donorName || !donorEmail || !purpose || !paymentMethod) {
             this.showNotification('Please fill all required fields', 'error');
             return;
         }
@@ -1416,91 +1426,4 @@ class Enhanced3DAlumniApp {
             transition: transform 0.3s ease;
             max-width: 400px;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        const autoRemoveTimer = setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (document.body.contains(notification)) {
-                    notification.remove();
-                }
-            }, 300);
-        }, type === 'success' ? 5000 : 4000);
-
-        notification.querySelector('.notification-close').addEventListener('click', () => {
-            clearTimeout(autoRemoveTimer);
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (document.body.contains(notification)) {
-                    notification.remove();
-                }
-            }, 300);
-        });
-    }
-
-    animateCards() {
-        const cards = document.querySelectorAll('.institution-card');
-        cards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px) rotateX(15deg)';
-            setTimeout(() => {
-                card.style.transition = 'all 0.6s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0) rotateX(0deg)';
-            }, index * 150);
-        });
-    }
-}
-
-// Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    window.alumniApp = new Enhanced3DAlumniApp();
-    
-    console.log(`
-🎓 Enhanced 3D Alumni Portal - Production Ready
-📍 Government of Punjab - Department of Higher Education  
-🏛️ Institution-First Authentication Flow
-🔒 Complete Security & Real Functionality
-💎 Premium 3D Interface & Animations
-🚀 All Systems Operational & Client Ready
-    `);
-});
-
-// Enhanced error handling
-window.addEventListener('error', (e) => {
-    console.log('Alumni Portal - All systems running smoothly');
-});
-
-// Prevent right-click for professional demo
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    return false;
-});
-
-// Professional keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    // Alt + H for home/dashboard
-    if (e.altKey && e.key === 'h') {
-        e.preventDefault();
-        if (window.alumniApp) {
-            window.alumniApp.showSection('dashboard');
-        }
-    }
-    
-    // Alt + L for login
-    if (e.altKey && e.key === 'l') {
-        e.preventDefault();
-        if (window.alumniApp) {
-            window.alumniApp.showLoginModal();
-        }
-    }
-});
+            display:
