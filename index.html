@@ -3,74 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumni Connect - Punjab</title>
+    <title>Alumni Connect - Punjab Government</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
 </head>
 <body>
-    <div id="institutionScreen" class="institution-screen">
+    <!-- Institution Selection Screen -->
+    <div id="institutionSelection" class="institution-screen active">
         <div class="stars"></div>
         <div class="twinkling"></div>
         
-        <div class="container">
-            <div class="header">
-                <div class="logo-3d">
-                    <div class="logo">🎓</div>
+        <div class="institution-container">
+            <div class="institution-header">
+                <div class="logo-animation">
+                    <div class="logo-3d">
+                        <div class="logo-face front">🎓</div>
+                        <div class="logo-face back">🎓</div>
+                    </div>
                 </div>
-                <h1 class="title">Alumni Connect</h1>
-                <p class="subtitle">Government of Punjab - Higher Education Department</p>
-                <div class="url-display">punjab-alumni.github.io</div>
+                <h1 class="institution-title">
+                    <span class="gradient-text">Alumni Connect</span>
+                </h1>
+                <p class="institution-subtitle">Government of Punjab - Department of Higher Education</p>
+                <p class="domain-display">punjab-alumni.github.io</p>
             </div>
 
-            <div class="search-card">
-                <div class="search-wrapper">
-                    <input type="text" id="searchInput" placeholder="Search your Punjab institution..." class="search-input">
-                    <div class="search-icon">🔍</div>
+            <div class="institution-search-card">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="institutionSearch" class="institution-search-input" 
+                               placeholder="Search for your Punjab institution..." autocomplete="off">
+                        <div class="search-icon">🔍</div>
+                    </div>
                 </div>
 
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="university">Universities</button>
-                    <button class="filter-btn" data-filter="engineering">Engineering</button>
-                    <button class="filter-btn" data-filter="medical">Medical</button>
+                <div class="institution-filters">
+                    <button class="filter-btn active" data-category="all">All Institutions</button>
+                    <button class="filter-btn" data-category="university">Universities</button>
+                    <button class="filter-btn" data-category="engineering">Engineering</button>
+                    <button class="filter-btn" data-category="medical">Medical</button>
+                    <button class="filter-btn" data-category="agricultural">Agricultural</button>
                 </div>
 
-                <div class="institutions" id="institutionsList">
-                    <!-- Will be populated by JavaScript -->
+                <div class="institutions-grid" id="institutionsGrid">
+                    <!-- Institutions will be populated by JavaScript -->
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Main Application -->
     <div id="mainApp" class="main-app hidden">
-        <header class="app-header">
-            <h1>🎓 Alumni Portal Punjab</h1>
-            <p>Professional • Secure • Government Verified</p>
-        </header>
-        
-        <main class="dashboard">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>15,247</h3>
-                    <p>Total Alumni</p>
-                </div>
-                <div class="stat-card">
-                    <h3>156</h3>
-                    <p>Institutions</p>
-                </div>
-                <div class="stat-card">
-                    <h3>89</h3>
-                    <p>Active Jobs</p>
-                </div>
-                <div class="stat-card">
-                    <h3>234</h3>
-                    <p>Mentorships</p>
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <div class="navbar-brand">
+                        <h2>🎓 Alumni Connect</h2>
+                    </div>
+                    <div class="navbar-menu" id="navbarMenu">
+                        <a href="#dashboard" class="navbar-link active" data-section="dashboard">Dashboard</a>
+                        <a href="#directory" class="navbar-link" data-section="directory">Alumni Directory</a>
+                        <a href="#events" class="navbar-link" data-section="events">Events</a>
+                        <a href="#jobs" class="navbar-link" data-section="jobs">Job Board</a>
+                        <a href="#mentorship" class="navbar-link" data-section="mentorship">Mentorship</a>
+                        <a href="#donations" class="navbar-link" data-section="donations">Donate</a>
+                    </div>
+                    <div class="navbar-actions">
+                        <button class="btn btn--outline" id="loginBtn">Login</button>
+                        <button class="btn btn--primary" id="logoutBtn" style="display: none;">Logout</button>
+                    </div>
                 </div>
             </div>
-        </main>
+        </nav>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h1>Welcome to Alumni Portal</h1>
+                    <p>Professional • Secure • Government Verified</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <h3>15,247</h3>
+                        <p>Total Alumni</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏛️</div>
+                        <h3>156</h3>
+                        <p>Institutions</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💼</div>
+                        <h3>89</h3>
+                        <p>Active Jobs</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🤝</div>
+                        <h3>234</h3>
+                        <p>Mentorships</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="section">
+            <div class="container">
+                <h2>Upcoming Events</h2>
+                <div class="events-grid" id="eventsGrid">
+                    <!-- Events populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Donations Section -->
+        <section id="donations" class="section">
+            <div class="container">
+                <h2>Support Our Cause</h2>
+                <div class="donations-grid" id="donationsGrid">
+                    <!-- Donations populated by JavaScript -->
+                </div>
+                
+                <div class="donation-form-card">
+                    <h3>Make a Donation</h3>
+                    <form id="donationForm">
+                        <div class="form-group">
+                            <label>Donation Amount</label>
+                            <div class="amount-buttons">
+                                <button type="button" class="amount-btn" data-amount="1000">₹1,000</button>
+                                <button type="button" class="amount-btn" data-amount="5000">₹5,000</button>
+                                <button type="button" class="amount-btn" data-amount="10000">₹10,000</button>
+                                <button type="button" class="amount-btn" data-amount="custom">Custom</button>
+                            </div>
+                            <input type="number" id="customAmount" placeholder="Enter custom amount" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Purpose</label>
+                            <select class="form-input">
+                                <option>Scholarship Fund</option>
+                                <option>Infrastructure Development</option>
+                                <option>Research Programs</option>
+                                <option>General Donation</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Donate Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alumni Directory Section -->
+        <section id="directory" class="section">
+            <div class="container">
+                <h2>Alumni Directory</h2>
+                <div class="directory-search">
+                    <input type="text" id="alumniSearch" placeholder="Search alumni..." class="form-input">
+                </div>
+                <div class="alumni-grid" id="alumniGrid">
+                    <!-- Alumni populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Jobs Section -->
+        <section id="jobs" class="section">
+            <div class="container">
+                <h2>Job Board</h2>
+                <div class="jobs-grid" id="jobsGrid">
+                    <!-- Jobs populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Mentorship Section -->
+        <section id="mentorship" class="section">
+            <div class="container">
+                <h2>Mentorship Program</h2>
+                <div class="mentors-grid" id="mentorsGrid">
+                    <!-- Mentors populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Alumni Login</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn--primary">Login</button>
+            </form>
+        </div>
     </div>
 
     <script src="app.js"></script>
 </body>
 </html>
+
