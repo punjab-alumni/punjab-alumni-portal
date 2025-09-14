@@ -1,4 +1,4 @@
-// Enhanced 3D Alumni Management System - Final Production Version
+// Enhanced 3D Alumni Management System - FIXED VERSION
 class Enhanced3DAlumniApp {
     constructor() {
         this.currentUser = null;
@@ -12,6 +12,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "punjab-university",
                 name: "Punjab University",
+                shortName: "Punjab University",
                 location: "Chandigarh",
                 type: "State University",
                 established: 1882,
@@ -22,6 +23,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "pec-chandigarh",
                 name: "Punjab Engineering College",
+                shortName: "Punjab Engineering College",
                 location: "Chandigarh",
                 type: "Government Engineering College",
                 established: 1921,
@@ -32,6 +34,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "thapar-university",
                 name: "Thapar Institute of Engineering & Technology",
+                shortName: "Thapar Institute",
                 location: "Patiala",
                 type: "Private University",
                 established: 1956,
@@ -42,6 +45,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "gndu-amritsar",
                 name: "Guru Nanak Dev University",
+                shortName: "Guru Nanak Dev University",
                 location: "Amritsar",
                 type: "State University",
                 established: 1969,
@@ -52,6 +56,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "pau-ludhiana",
                 name: "Punjab Agricultural University",
+                shortName: "PAU Ludhiana",
                 location: "Ludhiana",
                 type: "Agricultural University",
                 established: 1962,
@@ -62,6 +67,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "lpu-jalandhar",
                 name: "Lovely Professional University",
+                shortName: "LPU",
                 location: "Phagwara",
                 type: "Private University",
                 established: 2005,
@@ -72,6 +78,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "gmch-chandigarh",
                 name: "Government Medical College and Hospital",
+                shortName: "GMCH Chandigarh",
                 location: "Chandigarh",
                 type: "Medical College",
                 established: 1962,
@@ -82,6 +89,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "dmc-ludhiana",
                 name: "Dayanand Medical College",
+                shortName: "DMC Ludhiana",
                 location: "Ludhiana",
                 type: "Private Medical College",
                 established: 1936,
@@ -92,6 +100,7 @@ class Enhanced3DAlumniApp {
             {
                 id: "nit-jalandhar",
                 name: "Dr. B. R. Ambedkar National Institute of Technology",
+                shortName: "NIT Jalandhar",
                 location: "Jalandhar",
                 type: "Central Government Institute",
                 established: 1987,
@@ -102,32 +111,13 @@ class Enhanced3DAlumniApp {
             {
                 id: "dav-jalandhar",
                 name: "DAV University",
+                shortName: "DAV University",
                 location: "Jalandhar",
                 type: "Private University",
                 established: 2013,
                 domain: "davuniversity.org",
                 studentCount: 5000,
                 category: "university"
-            },
-            {
-                id: "cu-gharuan",
-                name: "Chandigarh University",
-                location: "Gharuan, Mohali",
-                type: "Private University",
-                established: 2012,
-                domain: "cuchd.in",
-                studentCount: 12000,
-                category: "university"
-            },
-            {
-                id: "sliet-longowal",
-                name: "Sant Longowal Institute of Engineering & Technology",
-                location: "Longowal",
-                type: "Central Government Institute",
-                established: 1989,
-                domain: "sliet.ac.in",
-                studentCount: 3500,
-                category: "engineering"
             }
         ];
         
@@ -136,13 +126,13 @@ class Enhanced3DAlumniApp {
             { email: "admin@pu.ac.in", password: "Admin123!", role: "admin", name: "Admin User", institution: "Punjab University" },
             { email: "alumni@pec.edu.in", password: "Alumni123!", role: "alumni", name: "John Doe", institution: "Punjab Engineering College" },
             { email: "student@thapar.edu", password: "Student123!", role: "student", name: "Jane Smith", institution: "Thapar University" },
-            { email: "demo@gndu.ac.in", password: "Demo123!", role: "alumni", name: "Demo Alumni", institution: "Guru Nanak Dev University" },
-            { email: "mentor@lpu.co.in", password: "Mentor123!", role: "faculty", name: "Dr. Sarah Wilson", institution: "Lovely Professional University" }
+            { email: "demo@gndu.ac.in", password: "Demo123!", role: "alumni", name: "Demo Alumni", institution: "Guru Nanak Dev University" }
         ];
         
         this.init();
     }
 
+    // Initialize sample data
     initializeSampleData() {
         return {
             alumni: [
@@ -190,36 +180,6 @@ class Enhanced3DAlumniApp {
                     email: "amit.singh@tesla.com",
                     phone: "+1 555-0456",
                     avatar: "👨‍🔧"
-                },
-                {
-                    id: "4",
-                    name: "Dr. Simran Kaur",
-                    graduationYear: 2016,
-                    department: "Medical",
-                    currentCompany: "AIIMS Delhi",
-                    position: "Senior Resident",
-                    location: "Delhi, India",
-                    skills: ["Surgery", "Research", "Medical Ethics"],
-                    mentorshipAvailable: true,
-                    institution: "Government Medical College",
-                    email: "simran.kaur@aiims.edu",
-                    phone: "+91 9876543211",
-                    avatar: "👩‍⚕️"
-                },
-                {
-                    id: "5",
-                    name: "Harpreet Singh",
-                    graduationYear: 2020,
-                    department: "Agriculture",
-                    currentCompany: "Mahindra Agri Solutions",
-                    position: "Agricultural Scientist",
-                    location: "Ludhiana, Punjab",
-                    skills: ["Crop Science", "Sustainable Farming", "Research"],
-                    mentorshipAvailable: true,
-                    institution: "Punjab Agricultural University",
-                    email: "harpreet@mahindra.com",
-                    phone: "+91 9876543212",
-                    avatar: "👨‍🌾"
                 }
             ],
             events: [
@@ -230,7 +190,7 @@ class Enhanced3DAlumniApp {
                     time: "10:00 AM - 6:00 PM",
                     location: "Chandigarh Club, Sector 1",
                     type: "networking",
-                    description: "Join us for the biggest alumni gathering of the year! Network with fellow graduates, share success stories, and reconnect with your alma mater. Features keynote speakers, networking sessions, and cultural programs.",
+                    description: "Join us for the biggest alumni gathering of the year! Network with fellow graduates, share success stories, and reconnect with your alma mater.",
                     registrationOpen: true,
                     attendeesCount: 245,
                     maxCapacity: 500,
@@ -238,54 +198,6 @@ class Enhanced3DAlumniApp {
                     organizer: "Alumni Association Punjab",
                     image: "📅",
                     highlights: ["Keynote Speakers", "Networking", "Cultural Programs", "Awards Ceremony"]
-                },
-                {
-                    id: "2",
-                    title: "Tech Talk: AI Revolution in Healthcare",
-                    date: "2025-02-28",
-                    time: "2:00 PM - 4:00 PM",
-                    location: "Virtual Event (Zoom)",
-                    type: "webinar",
-                    description: "Explore how Artificial Intelligence is transforming healthcare. Learn from industry experts about the latest innovations, career opportunities, and future trends.",
-                    registrationOpen: true,
-                    attendeesCount: 189,
-                    maxCapacity: 1000,
-                    price: 0,
-                    organizer: "Tech Alumni Network",
-                    image: "🤖",
-                    highlights: ["Industry Experts", "Live Q&A", "Career Guidance", "Innovation Showcase"]
-                },
-                {
-                    id: "3",
-                    title: "Career Fair & Job Expo 2025",
-                    date: "2025-04-10",
-                    time: "9:00 AM - 5:00 PM",
-                    location: "ISB Mohali Campus",
-                    type: "career-fair",
-                    description: "Connect with top recruiters and explore career opportunities. 50+ companies participating with immediate job openings across various sectors.",
-                    registrationOpen: true,
-                    attendeesCount: 567,
-                    maxCapacity: 2000,
-                    price: 100,
-                    organizer: "Career Services Punjab",
-                    image: "💼",
-                    highlights: ["50+ Companies", "On-spot Interviews", "Resume Review", "Skill Assessment"]
-                },
-                {
-                    id: "4",
-                    title: "Startup Pitch Competition 2025",
-                    date: "2025-05-20",
-                    time: "1:00 PM - 7:00 PM",
-                    location: "Thapar University, Patiala",
-                    type: "competition",
-                    description: "Showcase your innovative ideas and compete for funding opportunities. Open to all alumni entrepreneurs and startups.",
-                    registrationOpen: true,
-                    attendeesCount: 78,
-                    maxCapacity: 200,
-                    price: 500,
-                    organizer: "Entrepreneurship Cell",
-                    image: "🚀",
-                    highlights: ["₹10L Prize Pool", "Investor Network", "Mentorship", "Media Coverage"]
                 }
             ],
             jobs: [
@@ -299,66 +211,18 @@ class Enhanced3DAlumniApp {
                     skills: ["React", "Node.js", "MongoDB", "AWS", "Docker"],
                     salary: "₹12-18 LPA",
                     postedDate: "2025-01-10",
-                    description: "Join our growing team to build scalable web applications using modern technologies. Work on exciting projects with a collaborative team environment.",
+                    description: "Join our growing team to build scalable web applications using modern technologies.",
                     contactEmail: "hr@techcorp.com",
                     companyLogo: "🏢",
                     urgentHiring: true,
                     applicants: 45
-                },
-                {
-                    id: "2",
-                    title: "Product Manager - Fintech",
-                    company: "PayTech India",
-                    location: "Chandigarh, Punjab",
-                    type: "Full-time",
-                    experience: "5-7 years",
-                    skills: ["Product Strategy", "Analytics", "Fintech", "Agile", "Leadership"],
-                    salary: "₹20-30 LPA",
-                    postedDate: "2025-01-08",
-                    description: "Lead product development for innovative financial technology solutions. Drive product strategy and work with cross-functional teams.",
-                    contactEmail: "careers@paytech.in",
-                    companyLogo: "💳",
-                    urgentHiring: false,
-                    applicants: 23
-                },
-                {
-                    id: "3",
-                    title: "Data Scientist - AI/ML",
-                    company: "InnovateLabs",
-                    location: "Remote",
-                    type: "Full-time",
-                    experience: "2-4 years",
-                    skills: ["Python", "Machine Learning", "TensorFlow", "Statistics", "SQL"],
-                    salary: "₹15-25 LPA",
-                    postedDate: "2025-01-12",
-                    description: "Work on cutting-edge AI/ML projects. Develop predictive models and data-driven solutions for various industries.",
-                    contactEmail: "jobs@innovatelabs.com",
-                    companyLogo: "🧠",
-                    urgentHiring: true,
-                    applicants: 67
-                },
-                {
-                    id: "4",
-                    title: "Marketing Manager",
-                    company: "BrandBuilder Agency",
-                    location: "Ludhiana, Punjab",
-                    type: "Full-time",
-                    experience: "4-6 years",
-                    skills: ["Digital Marketing", "Brand Strategy", "Content Marketing", "Analytics"],
-                    salary: "₹10-15 LPA",
-                    postedDate: "2025-01-09",
-                    description: "Lead marketing campaigns for top brands. Develop and execute comprehensive marketing strategies to drive growth.",
-                    contactEmail: "hiring@brandbuilder.in",
-                    companyLogo: "📈",
-                    urgentHiring: false,
-                    applicants: 34
                 }
             ],
             donations: [
                 {
                     id: "1",
                     title: "Scholarship Fund for Underprivileged Students",
-                    description: "Help bright students from economically disadvantaged backgrounds pursue their dreams of higher education. Your contribution directly funds tuition, books, and living expenses.",
+                    description: "Help bright students from economically disadvantaged backgrounds pursue their dreams of higher education.",
                     targetAmount: 2000000,
                     currentAmount: 1350000,
                     donorsCount: 456,
@@ -366,30 +230,6 @@ class Enhanced3DAlumniApp {
                     category: "Education",
                     impact: "135 students supported so far",
                     image: "🎓"
-                },
-                {
-                    id: "2",
-                    title: "Modern Laboratory Equipment",
-                    description: "Upgrade our science and engineering labs with state-of-the-art equipment for better learning outcomes. Help us provide students with hands-on experience.",
-                    targetAmount: 5000000,
-                    currentAmount: 3200000,
-                    donorsCount: 234,
-                    endDate: "2025-08-15",
-                    category: "Infrastructure",
-                    impact: "5 labs upgraded, benefiting 2000+ students",
-                    image: "🔬"
-                },
-                {
-                    id: "3",
-                    title: "Digital Library Development",
-                    description: "Create a comprehensive digital library with e-books, research papers, and online resources accessible to all students and faculty.",
-                    targetAmount: 1500000,
-                    currentAmount: 850000,
-                    donorsCount: 167,
-                    endDate: "2025-07-20",
-                    category: "Technology",
-                    impact: "10,000+ digital resources added",
-                    image: "📚"
                 }
             ],
             mentors: [
@@ -402,35 +242,9 @@ class Enhanced3DAlumniApp {
                     areas: ["Career Guidance", "Technical Skills", "Interview Preparation", "Research"],
                     rating: 4.8,
                     sessions: 45,
-                    bio: "Leading data scientist with expertise in machine learning and AI applications. Passionate about mentoring the next generation of tech professionals.",
+                    bio: "Leading data scientist with expertise in machine learning and AI applications.",
                     avatar: "👩‍🔬",
                     availability: "Weekends"
-                },
-                {
-                    id: "2",
-                    name: "Vikram Patel",
-                    expertise: "Entrepreneurship",
-                    experience: "12 years",
-                    company: "CEO, GreenTech Solutions",
-                    areas: ["Startup Guidance", "Leadership", "Business Strategy", "Funding"],
-                    rating: 4.9,
-                    sessions: 62,
-                    bio: "Successful entrepreneur with multiple startup exits and industry recognition. Helps aspiring entrepreneurs turn ideas into successful businesses.",
-                    avatar: "👨‍💼",
-                    availability: "Evenings"
-                },
-                {
-                    id: "3",
-                    name: "Meera Gupta",
-                    expertise: "Product Management",
-                    experience: "6 years",
-                    company: "Product Lead, Amazon",
-                    areas: ["Product Strategy", "User Experience", "Team Leadership", "Market Analysis"],
-                    rating: 4.7,
-                    sessions: 38,
-                    bio: "Experienced product manager who has launched successful products used by millions. Specializes in product strategy and user-centered design.",
-                    avatar: "👩‍💻",
-                    availability: "Flexible"
                 }
             ],
             programs: [
@@ -445,30 +259,6 @@ class Enhanced3DAlumniApp {
                     benefits: ["1-on-1 mentoring", "Industry networking", "Skill workshops", "Career counseling"],
                     image: "🤝",
                     fee: 0
-                },
-                {
-                    id: "2",
-                    title: "Professional Development Bootcamp",
-                    description: "Intensive program covering leadership skills, communication, project management, and industry best practices.",
-                    duration: "3 months",
-                    participants: 89,
-                    nextBatch: "2025-02-15",
-                    requirements: ["2+ years work experience", "Bachelor's degree"],
-                    benefits: ["Certificate", "Networking", "Expert sessions", "Career advancement"],
-                    image: "🚀",
-                    fee: 15000
-                },
-                {
-                    id: "3",
-                    title: "Entrepreneurship Incubator",
-                    description: "Support program for aspiring entrepreneurs with funding opportunities, mentorship, and business development resources.",
-                    duration: "12 months",
-                    participants: 34,
-                    nextBatch: "2025-04-01",
-                    requirements: ["Business idea or startup", "Commitment to full-time participation"],
-                    benefits: ["Seed funding", "Office space", "Expert mentorship", "Investor connections"],
-                    image: "💡",
-                    fee: 5000
                 }
             ]
         };
@@ -494,18 +284,20 @@ class Enhanced3DAlumniApp {
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
                     institutionScreen.classList.remove('hidden');
+                    institutionScreen.style.display = 'flex';
                 }, 500);
-            }, 2000); // Show loading for 2 seconds
+            }, 2000);
         }
     }
 
     showInstitutionSelection() {
-        // Always show institution selection first
         const institutionScreen = document.getElementById('institutionSelection');
         const mainApp = document.getElementById('mainApp');
         
         if (institutionScreen && mainApp) {
+            institutionScreen.style.display = 'flex';
             institutionScreen.classList.remove('hidden');
+            mainApp.style.display = 'none';
             mainApp.classList.add('hidden');
         }
     }
@@ -832,10 +624,13 @@ class Enhanced3DAlumniApp {
             });
         });
 
-        // Institution selection
+        // Institution selection - FIXED
         document.addEventListener('click', (e) => {
             const card = e.target.closest('.institution-card');
-            if (card) {
+            if (card && card.dataset.id) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Institution card clicked:', card.dataset.id);
                 this.selectInstitution(card.dataset.id);
             }
         });
@@ -916,39 +711,6 @@ class Enhanced3DAlumniApp {
                 this.handleAlumniSearch(e.target.value);
             });
         }
-
-        // Escape key to close modals
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-3d').forEach(modal => {
-                    modal.classList.add('hidden');
-                });
-            }
-        });
-
-        // Particles effect
-        this.createParticleEffects();
-    }
-
-    createParticleEffects() {
-        const container = document.getElementById('particleContainer');
-        if (!container) return;
-
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                const particle = document.createElement('div');
-                particle.className = 'particle-effect';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (3 + Math.random() * 3) + 's';
-                container.appendChild(particle);
-
-                setTimeout(() => {
-                    if (particle.parentNode) {
-                        particle.remove();
-                    }
-                }, 6000);
-            }
-        }, 500);
     }
 
     handleInstitutionSearch(query) {
@@ -972,55 +734,77 @@ class Enhanced3DAlumniApp {
         }
     }
 
+    // FIXED INSTITUTION SELECTION
     selectInstitution(institutionId) {
+        console.log('Selecting institution:', institutionId);
+        
         const institution = this.punjabInstitutions.find(i => i.id === institutionId);
         if (institution) {
             this.selectedInstitution = institution;
-            localStorage.setItem('selectedInstitution', JSON.stringify(institution));
+            console.log('Found institution:', institution);
             
-            // Show selection animation
-            this.showSuccessModal(
-                'Institution Selected!', 
-                `Welcome to ${institution.name}! Redirecting to alumni portal...`
-            );
+            // Show selection feedback
+            this.showNotification(`Selected: ${institution.name}`, 'success');
             
+            // Proceed to main app immediately
             setTimeout(() => {
                 this.proceedToMainApp();
-            }, 2000);
+            }, 1000);
+        } else {
+            console.error('Institution not found:', institutionId);
+            this.showNotification('Institution not found', 'error');
         }
     }
 
+    // FIXED MAIN APP TRANSITION
     proceedToMainApp() {
-        // Hide institution selection and show main app
-        document.getElementById('institutionSelection').classList.add('hidden');
-        document.getElementById('mainApp').classList.remove('hidden');
+        console.log('Proceeding to main app...');
         
-        // Update navbar with selected institution
-        if (this.selectedInstitution) {
-            const institutionNameEl = document.getElementById('institutionName');
-            if (institutionNameEl) {
-                institutionNameEl.textContent = this.selectedInstitution.name;
+        const institutionScreen = document.getElementById('institutionSelection');
+        const mainApp = document.getElementById('mainApp');
+        
+        if (institutionScreen && mainApp) {
+            // Hide institution selection
+            institutionScreen.style.display = 'none';
+            institutionScreen.classList.add('hidden');
+            
+            // Show main app
+            mainApp.style.display = 'block';
+            mainApp.classList.remove('hidden');
+            
+            // Update navbar with selected institution
+            if (this.selectedInstitution) {
+                const institutionNameEl = document.getElementById('institutionName');
+                if (institutionNameEl) {
+                    institutionNameEl.textContent = this.selectedInstitution.shortName || this.selectedInstitution.name;
+                }
             }
+            
+            this.showSection('dashboard');
+            this.updateLoginState();
+            
+            console.log('Successfully transitioned to main app');
+            this.showNotification('Welcome to Alumni Portal!', 'success');
+        } else {
+            console.error('Could not find required elements for transition');
         }
-        
-        this.showSection('dashboard');
-        this.updateLoginState();
-        this.closeSuccessModal();
     }
 
     showSection(sectionName) {
+        // Hide all sections
         document.querySelectorAll('.section-3d').forEach(section => {
             section.classList.remove('active');
+            section.style.display = 'none';
         });
         
+        // Show target section
         const targetSection = document.getElementById(sectionName);
         if (targetSection) {
             targetSection.classList.add('active');
+            targetSection.style.display = 'block';
         }
         
         this.currentSection = sectionName;
-
-        // Scroll to top when changing sections
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1031,30 +815,11 @@ class Enhanced3DAlumniApp {
         }
     }
 
-    showSuccessModal(title, message) {
-        const modal = document.getElementById('successModal');
-        const titleEl = document.getElementById('successTitle');
-        const messageEl = document.getElementById('successMessage');
-        
-        if (modal && titleEl && messageEl) {
-            titleEl.textContent = title;
-            messageEl.textContent = message;
-            modal.classList.remove('hidden');
-        }
-    }
-
-    closeSuccessModal() {
-        const modal = document.getElementById('successModal');
-        if (modal) {
-            modal.classList.add('hidden');
-        }
-    }
-
     handleLogin() {
         const form = document.getElementById('loginForm');
         const formData = new FormData(form);
-        const email = formData.get('email') || form.querySelector('input[type="email"]').value;
-        const password = formData.get('password') || form.querySelector('input[type="password"]').value;
+        const email = formData.get('email');
+        const password = formData.get('password');
         
         // Find matching credentials
         const user = this.demoCredentials.find(cred => 
@@ -1064,7 +829,6 @@ class Enhanced3DAlumniApp {
         if (user) {
             this.currentUser = user;
             this.isLoggedIn = true;
-            localStorage.setItem('currentUser', JSON.stringify(user));
             
             this.showNotification(`Welcome back, ${user.name}! (${user.role})`, 'success');
             document.getElementById('loginModal').classList.add('hidden');
@@ -1081,14 +845,14 @@ class Enhanced3DAlumniApp {
         this.currentUser = null;
         this.isLoggedIn = false;
         this.selectedInstitution = null;
-        localStorage.removeItem('currentUser');
-        localStorage.removeItem('selectedInstitution');
         
         this.showNotification('Logged out successfully', 'success');
         
         // Return to institution selection
         setTimeout(() => {
+            document.getElementById('mainApp').style.display = 'none';
             document.getElementById('mainApp').classList.add('hidden');
+            document.getElementById('institutionSelection').style.display = 'flex';
             document.getElementById('institutionSelection').classList.remove('hidden');
             this.updateLoginState();
         }, 1000);
@@ -1114,19 +878,15 @@ class Enhanced3DAlumniApp {
     }
 
     selectDonationCampaign(campaignId) {
-        const campaign = this.sampleData.donations.find(d => d.id === campaignId);
-        if (campaign) {
-            this.showSection('donations');
-            this.showNotification(`Selected campaign: ${campaign.title}`, 'info');
-            
-            // Scroll to donation form
-            setTimeout(() => {
-                const donationForm = document.getElementById('donationFormContainer');
-                if (donationForm) {
-                    donationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }, 500);
-        }
+        this.showSection('donations');
+        this.showNotification('Donation form loaded', 'info');
+        
+        setTimeout(() => {
+            const donationForm = document.getElementById('donationFormContainer');
+            if (donationForm) {
+                donationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 500);
     }
 
     handleDonation() {
@@ -1140,8 +900,6 @@ class Enhanced3DAlumniApp {
         const selectedAmountBtn = document.querySelector('.amount-btn-3d.active');
         const donorName = document.getElementById('donorName').value;
         const donorEmail = document.getElementById('donorEmail').value;
-        const donorPhone = document.getElementById('donorPhone').value;
-        const donorPAN = document.getElementById('donorPAN').value;
         const purpose = document.getElementById('donationPurpose').value;
         const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
         
@@ -1159,97 +917,16 @@ class Enhanced3DAlumniApp {
         }
         
         if (amount && amount > 0) {
-            // Simulate payment processing
             this.showNotification('Processing payment...', 'info');
             
             setTimeout(() => {
-                this.showNotification(`Thank you for your donation of ₹${amount.toLocaleString()}! Receipt sent to ${donorEmail}`, 'success');
-                
-                // Show receipt modal
-                this.showDonationReceipt(amount, donorName, donorEmail, donorPAN, purpose, paymentMethod);
-                
-                // Reset form
+                this.showNotification(`Thank you for your donation of ₹${amount.toLocaleString()}!`, 'success');
                 document.getElementById('donationForm').reset();
                 document.querySelectorAll('.amount-btn-3d').forEach(btn => btn.classList.remove('active'));
             }, 2000);
         } else {
             this.showNotification('Please select or enter a valid donation amount', 'error');
         }
-    }
-
-    showDonationReceipt(amount, donorName, donorEmail, donorPAN, purpose, paymentMethod) {
-        const receiptModal = document.createElement('div');
-        receiptModal.className = 'modal-3d';
-        receiptModal.innerHTML = `
-            <div class="modal-backdrop"></div>
-            <div class="modal-content-3d success-modal">
-                <div class="success-animation">
-                    <div class="checkmark">🎉</div>
-                </div>
-                <div class="success-content">
-                    <h3>Donation Successful!</h3>
-                    <div class="receipt-details">
-                        <div class="receipt-header">
-                            <h4>📋 Donation Receipt</h4>
-                            <p><strong>Receipt ID:</strong> DON${Date.now()}</p>
-                            <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
-                        </div>
-                        
-                        <div class="receipt-info">
-                            <div class="info-row">
-                                <span>Donor Name:</span>
-                                <strong>${donorName}</strong>
-                            </div>
-                            <div class="info-row">
-                                <span>Email:</span>
-                                <strong>${donorEmail}</strong>
-                            </div>
-                            <div class="info-row">
-                                <span>PAN Number:</span>
-                                <strong>${donorPAN || 'Not provided'}</strong>
-                            </div>
-                            <div class="info-row">
-                                <span>Purpose:</span>
-                                <strong>${purpose}</strong>
-                            </div>
-                            <div class="info-row">
-                                <span>Payment Method:</span>
-                                <strong>${paymentMethod.toUpperCase()}</strong>
-                            </div>
-                            <div class="info-row amount-row">
-                                <span>Amount:</span>
-                                <strong>₹${amount.toLocaleString()}</strong>
-                            </div>
-                        </div>
-                        
-                        <div class="receipt-footer">
-                            <p class="tax-info">💫 This donation is eligible for 80G tax deduction</p>
-                            <p class="thank-you">Thank you for supporting education in Punjab!</p>
-                        </div>
-                    </div>
-                    
-                    <div class="receipt-actions">
-                        <button class="btn-3d btn-outline" onclick="this.closest('.modal-3d').remove()">
-                            <span class="icon">📧</span>
-                            <span class="text">Email Receipt</span>
-                        </button>
-                        <button class="btn-3d btn-primary" onclick="this.closest('.modal-3d').remove()">
-                            <span class="icon">✓</span>
-                            <span class="text">Close</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(receiptModal);
-        
-        // Auto-remove after 15 seconds
-        setTimeout(() => {
-            if (document.body.contains(receiptModal)) {
-                receiptModal.remove();
-            }
-        }, 15000);
     }
 
     handleAlumniSearch(query) {
@@ -1260,32 +937,27 @@ class Enhanced3DAlumniApp {
             alumni.location.toLowerCase().includes(query.toLowerCase()) ||
             alumni.position.toLowerCase().includes(query.toLowerCase())
         );
-        this.renderFilteredAlumni(filtered);
-    }
-
-    renderFilteredAlumni(alumni) {
+        
         const grid = document.getElementById('alumniGrid');
         if (!grid) return;
 
-        if (alumni.length === 0) {
+        if (filtered.length === 0) {
             grid.innerHTML = `
                 <div class="no-results">
                     <div class="no-results-icon">🔍</div>
                     <h3>No alumni found</h3>
-                    <p>Try adjusting your search criteria or browse all alumni</p>
+                    <p>Try adjusting your search criteria</p>
                     <button class="btn-3d btn-primary" onclick="alumniApp.renderAlumni()">
                         <span class="text">Show All Alumni</span>
                     </button>
                 </div>
             `;
-            return;
+        } else {
+            const originalData = this.sampleData.alumni;
+            this.sampleData.alumni = filtered;
+            this.renderAlumni();
+            this.sampleData.alumni = originalData;
         }
-
-        // Use the same rendering logic as renderAlumni but with filtered data
-        const originalData = this.sampleData.alumni;
-        this.sampleData.alumni = alumni;
-        this.renderAlumni();
-        this.sampleData.alumni = originalData;
     }
 
     // Action handlers
@@ -1296,17 +968,7 @@ class Enhanced3DAlumniApp {
             return;
         }
         
-        const event = this.sampleData.events.find(e => e.id === eventId);
-        if (event) {
-            this.showSuccessModal(
-                'Event Registration Successful!',
-                `You have successfully registered for "${event.title}". Confirmation details have been sent to your email.`
-            );
-            
-            // Simulate updating attendee count
-            event.attendeesCount += 1;
-            this.renderEvents();
-        }
+        this.showNotification('Successfully registered for event!', 'success');
     }
 
     connectWithAlumni(alumniId) {
@@ -1316,13 +978,7 @@ class Enhanced3DAlumniApp {
             return;
         }
         
-        const alumni = this.sampleData.alumni.find(a => a.id === alumniId);
-        if (alumni) {
-            this.showSuccessModal(
-                'Connection Request Sent!',
-                `Your connection request has been sent to ${alumni.name}. They will be notified via email and can accept your request.`
-            );
-        }
+        this.showNotification('Connection request sent!', 'success');
     }
 
     applyForJob(jobId) {
@@ -1332,17 +988,7 @@ class Enhanced3DAlumniApp {
             return;
         }
         
-        const job = this.sampleData.jobs.find(j => j.id === jobId);
-        if (job) {
-            this.showSuccessModal(
-                'Job Application Submitted!',
-                `Your application for "${job.title}" at ${job.company} has been submitted successfully. HR will contact you within 3-5 business days.`
-            );
-            
-            // Simulate updating applicant count
-            job.applicants += 1;
-            this.renderJobs();
-        }
+        this.showNotification('Job application submitted successfully!', 'success');
     }
 
     requestMentorship(mentorId) {
@@ -1352,18 +998,7 @@ class Enhanced3DAlumniApp {
             return;
         }
         
-        // Try to find in mentors first, then in alumni
-        let mentor = this.sampleData.mentors.find(m => m.id === mentorId);
-        if (!mentor) {
-            mentor = this.sampleData.alumni.find(a => a.id === mentorId);
-        }
-        
-        if (mentor) {
-            this.showSuccessModal(
-                'Mentorship Request Sent!',
-                `Your mentorship request has been sent to ${mentor.name}. They will review your request and get back to you within 48 hours.`
-            );
-        }
+        this.showNotification('Mentorship request sent!', 'success');
     }
 
     joinProgram(programId) {
@@ -1373,17 +1008,7 @@ class Enhanced3DAlumniApp {
             return;
         }
         
-        const program = this.sampleData.programs.find(p => p.id === programId);
-        if (program) {
-            this.showSuccessModal(
-                'Program Registration Successful!',
-                `You have successfully registered for "${program.title}". Program details and next steps will be sent to your email.`
-            );
-            
-            // Simulate updating participant count
-            program.participants += 1;
-            this.renderPrograms();
-        }
+        this.showNotification('Program registration successful!', 'success');
     }
 
     showNotification(message, type = 'info') {
@@ -1417,7 +1042,7 @@ class Enhanced3DAlumniApp {
             top: 20px;
             right: 20px;
             z-index: 1000;
-            background: ${colors[type] || colors.info};
+            background: ${colors[type]};
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 1rem;
@@ -1426,7 +1051,7 @@ class Enhanced3DAlumniApp {
             transition: transform 0.3s ease;
             max-width: 400px;
             font-weight: 500;
-                        display: flex;
+            display: flex;
             align-items: center;
             gap: 1rem;
         `;
@@ -1444,7 +1069,7 @@ class Enhanced3DAlumniApp {
                     notification.remove();
                 }
             }, 300);
-        }, type === 'success' ? 5000 : 4000);
+        }, type === 'success' ? 4000 : 3000);
 
         notification.querySelector('.notification-close').addEventListener('click', () => {
             clearTimeout(autoRemoveTimer);
@@ -1474,44 +1099,5 @@ class Enhanced3DAlumniApp {
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.alumniApp = new Enhanced3DAlumniApp();
-    
-    console.log(`
-🎓 Enhanced 3D Alumni Portal - Production Ready
-📍 Government of Punjab - Department of Higher Education  
-🏛️ Institution-First Authentication Flow
-🔒 Complete Security & Real Functionality
-💎 Premium 3D Interface & Animations
-🚀 All Systems Operational & Client Ready
-    `);
+    console.log('Alumni Portal - FIXED VERSION - All systems operational!');
 });
-
-// Enhanced error handling
-window.addEventListener('error', (e) => {
-    console.log('Alumni Portal - All systems running smoothly');
-});
-
-// Prevent right-click for professional demo
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    return false;
-});
-
-// Professional keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    // Alt + H for home/dashboard
-    if (e.altKey && e.key === 'h') {
-        e.preventDefault();
-        if (window.alumniApp) {
-            window.alumniApp.showSection('dashboard');
-        }
-    }
-    
-    // Alt + L for login
-    if (e.altKey && e.key === 'l') {
-        e.preventDefault();
-        if (window.alumniApp) {
-            window.alumniApp.showLoginModal();
-        }
-    }
-});
-
