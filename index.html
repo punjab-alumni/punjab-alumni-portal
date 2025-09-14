@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Connect - Punjab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+    <div id="institutionScreen" class="institution-screen">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        
+        <div class="container">
+            <div class="header">
+                <div class="logo-3d">
+                    <div class="logo">🎓</div>
+                </div>
+                <h1 class="title">Alumni Connect</h1>
+                <p class="subtitle">Government of Punjab - Higher Education Department</p>
+                <div class="url-display">punjab-alumni.github.io</div>
+            </div>
+
+            <div class="search-card">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search your Punjab institution..." class="search-input">
+                    <div class="search-icon">🔍</div>
+                </div>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="university">Universities</button>
+                    <button class="filter-btn" data-filter="engineering">Engineering</button>
+                    <button class="filter-btn" data-filter="medical">Medical</button>
+                </div>
+
+                <div class="institutions" id="institutionsList">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainApp" class="main-app hidden">
+        <header class="app-header">
+            <h1>🎓 Alumni Portal Punjab</h1>
+            <p>Professional • Secure • Government Verified</p>
+        </header>
+        
+        <main class="dashboard">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>15,247</h3>
+                    <p>Total Alumni</p>
+                </div>
+                <div class="stat-card">
+                    <h3>156</h3>
+                    <p>Institutions</p>
+                </div>
+                <div class="stat-card">
+                    <h3>89</h3>
+                    <p>Active Jobs</p>
+                </div>
+                <div class="stat-card">
+                    <h3>234</h3>
+                    <p>Mentorships</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
