@@ -3,52 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumni Connect - Punjab Government</title>
+    <title>Alumni Connect - Punjab Government | 3D Elite Portal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="cube">
+                <div class="face front">🎓</div>
+                <div class="face back">📚</div>
+                <div class="face right">🌟</div>
+                <div class="face left">💼</div>
+                <div class="face top">🚀</div>
+                <div class="face bottom">🏛️</div>
+            </div>
+            <div class="loading-text">
+                <h2>Alumni Connect</h2>
+                <p>Loading 3D Experience...</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Institution Selection Screen -->
     <div id="institutionSelection" class="institution-screen active">
-        <div class="stars"></div>
-        <div class="twinkling"></div>
+        <div class="particles-background">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-icon">📚</div>
+            <div class="floating-icon">🎓</div>
+            <div class="floating-icon">💡</div>
+            <div class="floating-icon">🌟</div>
+        </div>
         
         <div class="institution-container">
             <div class="institution-header">
-                <div class="logo-animation">
+                <div class="logo-3d-container">
                     <div class="logo-3d">
                         <div class="logo-face front">🎓</div>
-                        <div class="logo-face back">🎓</div>
+                        <div class="logo-face back">📚</div>
+                        <div class="logo-face right">🌟</div>
+                        <div class="logo-face left">💼</div>
+                        <div class="logo-face top">🚀</div>
+                        <div class="logo-face bottom">🏛️</div>
                     </div>
                 </div>
                 <h1 class="institution-title">
-                    <span class="gradient-text">Alumni Connect</span>
+                    <span class="gradient-text-3d">Alumni Connect</span>
                 </h1>
-                <p class="institution-subtitle">Government of Punjab - Department of Higher Education</p>
-                <p class="domain-display">punjab-alumni.github.io</p>
+                <div class="subtitle-container">
+                    <p class="institution-subtitle">Government of Punjab</p>
+                    <p class="institution-tagline">Department of Higher Education</p>
+                    <div class="domain-badge">punjab-alumni.github.io</div>
+                </div>
             </div>
 
-            <div class="institution-search-card">
+            <div class="institution-search-card-3d">
+                <div class="card-glow"></div>
                 <div class="search-container">
-                    <div class="search-input-wrapper">
-                        <input type="text" id="institutionSearch" class="institution-search-input" 
-                               placeholder="Search for your Punjab institution..." autocomplete="off">
-                        <div class="search-icon">🔍</div>
+                    <div class="search-input-wrapper-3d">
+                        <input type="text" id="institutionSearch" class="institution-search-input-3d" 
+                               placeholder="🔍 Search your Punjab institution..." autocomplete="off">
+                        <div class="search-particles"></div>
                     </div>
                 </div>
 
-                <div class="institution-filters">
-                    <button class="filter-btn active" data-category="all">All Institutions</button>
-                    <button class="filter-btn" data-category="university">Universities</button>
-                    <button class="filter-btn" data-category="engineering">Engineering</button>
-                    <button class="filter-btn" data-category="medical">Medical</button>
-                    <button class="filter-btn" data-category="agricultural">Agricultural</button>
+                <div class="institution-filters-3d">
+                    <button class="filter-btn-3d active" data-category="all">
+                        <span>🏛️</span> All Institutions
+                    </button>
+                    <button class="filter-btn-3d" data-category="university">
+                        <span>🎓</span> Universities
+                    </button>
+                    <button class="filter-btn-3d" data-category="engineering">
+                        <span>⚙️</span> Engineering
+                    </button>
+                    <button class="filter-btn-3d" data-category="medical">
+                        <span>⚕️</span> Medical
+                    </button>
+                    <button class="filter-btn-3d" data-category="agricultural">
+                        <span>🌾</span> Agricultural
+                    </button>
                 </div>
 
-                <div class="institutions-grid" id="institutionsGrid">
+                <div class="institutions-grid-3d" id="institutionsGrid">
                     <!-- Institutions will be populated by JavaScript -->
                 </div>
             </div>
@@ -57,162 +105,449 @@
 
     <!-- Main Application -->
     <div id="mainApp" class="main-app hidden">
-        <!-- Navigation -->
-        <nav class="navbar" id="navbar">
+        <!-- 3D Navigation -->
+        <nav class="navbar-3d" id="navbar">
+            <div class="navbar-bg"></div>
             <div class="container">
                 <div class="navbar-content">
-                    <div class="navbar-brand">
-                        <h2>🎓 Alumni Connect</h2>
+                    <div class="navbar-brand-3d">
+                        <div class="brand-icon">🎓</div>
+                        <h2 id="institutionName">Alumni Connect</h2>
                     </div>
-                    <div class="navbar-menu" id="navbarMenu">
-                        <a href="#dashboard" class="navbar-link active" data-section="dashboard">Dashboard</a>
-                        <a href="#directory" class="navbar-link" data-section="directory">Alumni Directory</a>
-                        <a href="#events" class="navbar-link" data-section="events">Events</a>
-                        <a href="#jobs" class="navbar-link" data-section="jobs">Job Board</a>
-                        <a href="#mentorship" class="navbar-link" data-section="mentorship">Mentorship</a>
-                        <a href="#donations" class="navbar-link" data-section="donations">Donate</a>
+                    <div class="navbar-menu-3d" id="navbarMenu">
+                        <a href="#dashboard" class="navbar-link-3d active" data-section="dashboard">
+                            <span class="icon">📊</span>
+                            <span class="text">Dashboard</span>
+                        </a>
+                        <a href="#directory" class="navbar-link-3d" data-section="directory">
+                            <span class="icon">👥</span>
+                            <span class="text">Alumni</span>
+                        </a>
+                        <a href="#events" class="navbar-link-3d" data-section="events">
+                            <span class="icon">📅</span>
+                            <span class="text">Events</span>
+                        </a>
+                        <a href="#jobs" class="navbar-link-3d" data-section="jobs">
+                            <span class="icon">💼</span>
+                            <span class="text">Jobs</span>
+                        </a>
+                        <a href="#mentorship" class="navbar-link-3d" data-section="mentorship">
+                            <span class="icon">🤝</span>
+                            <span class="text">Mentorship</span>
+                        </a>
+                        <a href="#donations" class="navbar-link-3d" data-section="donations">
+                            <span class="icon">💝</span>
+                            <span class="text">Donate</span>
+                        </a>
+                        <a href="#programs" class="navbar-link-3d" data-section="programs">
+                            <span class="icon">🚀</span>
+                            <span class="text">Programs</span>
+                        </a>
                     </div>
-                    <div class="navbar-actions">
-                        <button class="btn btn--outline" id="loginBtn">Login</button>
-                        <button class="btn btn--primary" id="logoutBtn" style="display: none;">Logout</button>
+                    <div class="navbar-actions-3d">
+                        <button class="btn-3d btn-outline" id="loginBtn">
+                            <span class="icon">🔐</span>
+                            <span class="text">Login</span>
+                        </button>
+                        <button class="btn-3d btn-primary" id="logoutBtn" style="display: none;">
+                            <span class="icon">👤</span>
+                            <span class="text" id="userNameDisplay">Logout</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </nav>
 
         <!-- Dashboard Section -->
-        <section id="dashboard" class="section active">
+        <section id="dashboard" class="section-3d active">
+            <div class="section-bg"></div>
             <div class="container">
-                <div class="dashboard-header">
-                    <h1>Welcome to Alumni Portal</h1>
-                    <p>Professional • Secure • Government Verified</p>
+                <div class="welcome-card-3d">
+                    <div class="welcome-content">
+                        <h1 class="welcome-title">Welcome to Alumni Portal</h1>
+                        <p class="welcome-subtitle">Professional • Secure • Government Verified</p>
+                        <div class="welcome-badges">
+                            <span class="badge-3d">✅ Verified</span>
+                            <span class="badge-3d">🔒 Secure</span>
+                            <span class="badge-3d">🏛️ Official</span>
+                        </div>
+                    </div>
+                    <div class="welcome-visual">
+                        <div class="floating-stats">
+                            <div class="stat-float">15K+ Alumni</div>
+                            <div class="stat-float">156 Institutions</div>
+                            <div class="stat-float">89 Jobs</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <h3>15,247</h3>
-                        <p>Total Alumni</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🏛️</div>
-                        <h3>156</h3>
-                        <p>Institutions</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">💼</div>
-                        <h3>89</h3>
-                        <p>Active Jobs</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">🤝</div>
-                        <h3>234</h3>
-                        <p>Mentorships</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events Section -->
-        <section id="events" class="section">
-            <div class="container">
-                <h2>Upcoming Events</h2>
-                <div class="events-grid" id="eventsGrid">
-                    <!-- Events populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Donations Section -->
-        <section id="donations" class="section">
-            <div class="container">
-                <h2>Support Our Cause</h2>
-                <div class="donations-grid" id="donationsGrid">
-                    <!-- Donations populated by JavaScript -->
-                </div>
-                
-                <div class="donation-form-card">
-                    <h3>Make a Donation</h3>
-                    <form id="donationForm">
-                        <div class="form-group">
-                            <label>Donation Amount</label>
-                            <div class="amount-buttons">
-                                <button type="button" class="amount-btn" data-amount="1000">₹1,000</button>
-                                <button type="button" class="amount-btn" data-amount="5000">₹5,000</button>
-                                <button type="button" class="amount-btn" data-amount="10000">₹10,000</button>
-                                <button type="button" class="amount-btn" data-amount="custom">Custom</button>
-                            </div>
-                            <input type="number" id="customAmount" placeholder="Enter custom amount" class="form-input">
+                <div class="stats-grid-3d">
+                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon-3d">👥</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">15,247</h3>
+                            <p class="stat-label">Total Alumni</p>
+                            <div class="stat-trend">📈 +12% this year</div>
                         </div>
-                        <div class="form-group">
-                            <label>Purpose</label>
-                            <select class="form-input">
-                                <option>Scholarship Fund</option>
-                                <option>Infrastructure Development</option>
-                                <option>Research Programs</option>
-                                <option>General Donation</option>
-                            </select>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon-3d">🏛️</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">156</h3>
+                            <p class="stat-label">Institutions</p>
+                            <div class="stat-trend">✨ All Punjab</div>
                         </div>
-                        <button type="submit" class="btn btn--primary">Donate Now</button>
-                    </form>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon-3d">💼</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">89</h3>
+                            <p class="stat-label">Active Jobs</p>
+                            <div class="stat-trend">🔥 Hot opportunities</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon-3d">🤝</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">234</h3>
+                            <p class="stat-label">Mentorships</p>
+                            <div class="stat-trend">🌟 Active connections</div>
+                        </div>
+                        <div class="stat-glow"></div>
+                    </div>
+                </div>
+
+                <div class="quick-actions-3d">
+                    <h2 class="section-title-3d">Quick Actions</h2>
+                    <div class="actions-grid">
+                        <button class="action-card-3d" onclick="alumniApp.showSection('events')">
+                            <div class="action-icon">📅</div>
+                            <h3>Join Events</h3>
+                            <p>Upcoming networking events</p>
+                        </button>
+                        <button class="action-card-3d" onclick="alumniApp.showSection('donations')">
+                            <div class="action-icon">💝</div>
+                            <h3>Make Donation</h3>
+                            <p>Support education initiatives</p>
+                        </button>
+                        <button class="action-card-3d" onclick="alumniApp.showSection('mentorship')">
+                            <div class="action-icon">🤝</div>
+                            <h3>Find Mentor</h3>
+                            <p>Connect with industry experts</p>
+                        </button>
+                        <button class="action-card-3d" onclick="alumniApp.showSection('directory')">
+                            <div class="action-icon">👥</div>
+                            <h3>Browse Alumni</h3>
+                            <p>Connect with graduates</p>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Alumni Directory Section -->
-        <section id="directory" class="section">
+        <section id="directory" class="section-3d">
+            <div class="section-bg"></div>
             <div class="container">
-                <h2>Alumni Directory</h2>
-                <div class="directory-search">
-                    <input type="text" id="alumniSearch" placeholder="Search alumni..." class="form-input">
+                <div class="section-header-3d">
+                    <h2 class="section-title-3d">Alumni Directory</h2>
+                    <p class="section-subtitle">Connect with our distinguished graduates</p>
                 </div>
-                <div class="alumni-grid" id="alumniGrid">
-                    <!-- Alumni populated by JavaScript -->
+                
+                <div class="directory-controls-3d">
+                    <div class="search-filters-3d">
+                        <input type="text" id="alumniSearch" placeholder="🔍 Search alumni by name, company, skills..." class="search-input-3d">
+                        <div class="filter-chips">
+                            <button class="chip-3d active" data-filter="all">All</button>
+                            <button class="chip-3d" data-filter="engineering">Engineering</button>
+                            <button class="chip-3d" data-filter="business">Business</button>
+                            <button class="chip-3d" data-filter="medical">Medical</button>
+                            <button class="chip-3d" data-filter="entrepreneur">Entrepreneurs</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alumni-grid-3d" id="alumniGrid">
+                    <!-- Alumni cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="section-3d">
+            <div class="section-bg"></div>
+            <div class="container">
+                <div class="section-header-3d">
+                    <h2 class="section-title-3d">Upcoming Events</h2>
+                    <p class="section-subtitle">Join our exciting alumni activities</p>
+                </div>
+                
+                <div class="events-grid-3d" id="eventsGrid">
+                    <!-- Events will be populated by JavaScript -->
                 </div>
             </div>
         </section>
 
         <!-- Jobs Section -->
-        <section id="jobs" class="section">
+        <section id="jobs" class="section-3d">
+            <div class="section-bg"></div>
             <div class="container">
-                <h2>Job Board</h2>
-                <div class="jobs-grid" id="jobsGrid">
-                    <!-- Jobs populated by JavaScript -->
+                <div class="section-header-3d">
+                    <h2 class="section-title-3d">Career Opportunities</h2>
+                    <p class="section-subtitle">Discover your next career move</p>
+                </div>
+                
+                <div class="jobs-controls-3d">
+                    <div class="job-filters">
+                        <button class="job-filter-btn active" data-filter="all">All Jobs</button>
+                        <button class="job-filter-btn" data-filter="full-time">Full Time</button>
+                        <button class="job-filter-btn" data-filter="remote">Remote</button>
+                        <button class="job-filter-btn" data-filter="internship">Internships</button>
+                    </div>
+                </div>
+                
+                <div class="jobs-grid-3d" id="jobsGrid">
+                    <!-- Jobs will be populated by JavaScript -->
                 </div>
             </div>
         </section>
 
         <!-- Mentorship Section -->
-        <section id="mentorship" class="section">
+        <section id="mentorship" class="section-3d">
+            <div class="section-bg"></div>
             <div class="container">
-                <h2>Mentorship Program</h2>
-                <div class="mentors-grid" id="mentorsGrid">
-                    <!-- Mentors populated by JavaScript -->
+                <div class="section-header-3d">
+                    <h2 class="section-title-3d">Mentorship Program</h2>
+                    <p class="section-subtitle">Learn from industry leaders</p>
+                </div>
+                
+                <div class="mentorship-stats-3d">
+                    <div class="mentor-stat">
+                        <div class="stat-icon">🌟</div>
+                        <div class="stat-text">
+                            <h3>234</h3>
+                            <p>Active Mentors</p>
+                        </div>
+                    </div>
+                    <div class="mentor-stat">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-text">
+                            <h3>1,456</h3>
+                            <p>Successful Connections</p>
+                        </div>
+                    </div>
+                    <div class="mentor-stat">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-text">
+                            <h3>92%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentors-grid-3d" id="mentorsGrid">
+                    <!-- Mentors will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Donations Section -->
+        <section id="donations" class="section-3d">
+            <div class="section-bg"></div>
+            <div class="container">
+                <div class="section-header-3d">
+                    <h2 class="section-title-3d">Support Our Mission</h2>
+                    <p class="section-subtitle">Help us build a better future for education</p>
+                </div>
+                
+                <div class="donation-campaigns-3d" id="donationCampaigns">
+                    <!-- Donation campaigns will be populated by JavaScript -->
+                </div>
+                
+                <div class="donation-form-3d" id="donationFormContainer">
+                    <div class="form-card-3d">
+                        <div class="form-header">
+                            <h3>Make a Donation</h3>
+                            <p>Your contribution makes a difference</p>
+                        </div>
+                        
+                        <form id="donationForm" class="donation-form">
+                            <div class="amount-selection-3d">
+                                <label class="form-label-3d">Select Amount</label>
+                                <div class="amount-buttons-3d">
+                                    <button type="button" class="amount-btn-3d" data-amount="1000">₹1,000</button>
+                                    <button type="button" class="amount-btn-3d" data-amount="5000">₹5,000</button>
+                                    <button type="button" class="amount-btn-3d" data-amount="10000">₹10,000</button>
+                                    <button type="button" class="amount-btn-3d" data-amount="25000">₹25,000</button>
+                                    <button type="button" class="amount-btn-3d" data-amount="custom">Custom</button>
+                                </div>
+                                <input type="number" id="customAmount" class="custom-amount-input" placeholder="Enter custom amount" style="display: none;">
+                            </div>
+                            
+                            <div class="form-group-3d">
+                                <label class="form-label-3d">Purpose</label>
+                                <select class="form-select-3d" id="donationPurpose">
+                                    <option value="">Select donation purpose</option>
+                                    <option value="scholarship">Scholarship Fund</option>
+                                    <option value="infrastructure">Infrastructure Development</option>
+                                    <option value="research">Research Programs</option>
+                                    <option value="technology">Technology Upgrades</option>
+                                    <option value="general">General Fund</option>
+                                </select>
+                            </div>
+                            
+                            <div class="donor-details-3d">
+                                <h4>Donor Information</h4>
+                                <div class="form-row">
+                                    <div class="form-group-3d">
+                                        <label class="form-label-3d">Full Name</label>
+                                        <input type="text" class="form-input-3d" id="donorName" required>
+                                    </div>
+                                    <div class="form-group-3d">
+                                        <label class="form-label-3d">Email</label>
+                                        <input type="email" class="form-input-3d" id="donorEmail" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group-3d">
+                                        <label class="form-label-3d">Phone Number</label>
+                                        <input type="tel" class="form-input-3d" id="donorPhone">
+                                    </div>
+                                    <div class="form-group-3d">
+                                        <label class="form-label-3d">PAN Number (for tax benefits)</label>
+                                        <input type="text" class="form-input-3d" id="donorPAN" placeholder="ABCDE1234F">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-methods-3d">
+                                <h4>Payment Method</h4>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="upi" checked>
+                                        <div class="payment-card">
+                                            <span class="payment-icon">📱</span>
+                                            <span class="payment-text">UPI Payment</span>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="card">
+                                        <div class="payment-card">
+                                            <span class="payment-icon">💳</span>
+                                            <span class="payment-text">Credit/Debit Card</span>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="netbanking">
+                                        <div class="payment-card">
+                                            <span class="payment-icon">🏦</span>
+                                            <span class="payment-text">Net Banking</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="tax-info-3d">
+                                <div class="info-card">
+                                    <span class="info-icon">ℹ️</span>
+                                    <div class="info-text">
+                                        <strong>Tax Benefits:</strong> Donations are eligible for 80G tax deduction. You'll receive an official receipt for tax purposes.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn-3d btn-primary btn-large">
+                                <span class="icon">💝</span>
+                                <span class="text">Donate Now</span>
+                                <div class="btn-shine"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="section-3d">
+            <div class="section-bg"></div>
+            <div class="container">
+                <div class="section-header-3d">
+                    <h2 class="section-title-3d">Join Our Programs</h2>
+                    <p class="section-subtitle">Participate in exclusive alumni programs</p>
+                </div>
+                
+                <div class="programs-grid-3d" id="programsGrid">
+                    <!-- Programs will be populated by JavaScript -->
                 </div>
             </div>
         </section>
     </div>
 
     <!-- Login Modal -->
-    <div id="loginModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Alumni Login</h3>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" class="form-input" required>
+    <div id="loginModal" class="modal-3d hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content-3d">
+            <div class="modal-header">
+                <h3>Alumni Login</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            
+            <div class="login-demo-credentials">
+                <h4>🔐 Demo Login Credentials:</h4>
+                <div class="credentials-grid">
+                    <div class="credential-card">
+                        <strong>Admin:</strong> admin@pu.ac.in<br>
+                        <strong>Password:</strong> Admin123!
+                    </div>
+                    <div class="credential-card">
+                        <strong>Alumni:</strong> alumni@pec.edu.in<br>
+                        <strong>Password:</strong> Alumni123!
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-input" required>
+            </div>
+            
+            <form id="loginForm" class="login-form-3d">
+                <div class="form-group-3d">
+                    <label class="form-label-3d">Email Address</label>
+                    <input type="email" class="form-input-3d" name="email" placeholder="Enter your email" required>
                 </div>
-                <button type="submit" class="btn btn--primary">Login</button>
+                <div class="form-group-3d">
+                    <label class="form-label-3d">Password</label>
+                    <input type="password" class="form-input-3d" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn-3d btn-primary btn-large">
+                    <span class="icon">🔐</span>
+                    <span class="text">Login</span>
+                </button>
             </form>
+            
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" class="register-link">Register here</a></p>
+            </div>
         </div>
     </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-3d hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content-3d success-modal">
+            <div class="success-animation">
+                <div class="checkmark">✓</div>
+            </div>
+            <div class="success-content">
+                <h3 id="successTitle">Success!</h3>
+                <p id="successMessage">Your action was completed successfully.</p>
+                <button class="btn-3d btn-primary" onclick="alumniApp.closeSuccessModal()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle Effects Container -->
+    <div id="particleContainer" class="particle-container"></div>
 
     <script src="app.js"></script>
 </body>
 </html>
-
