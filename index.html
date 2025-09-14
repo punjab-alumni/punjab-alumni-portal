@@ -30,7 +30,7 @@
     </div>
 
     <!-- Institution Selection Screen -->
-    <div id="institutionSelection" class="institution-screen active">
+    <div id="institutionSelection" class="institution-screen hidden">
         <div class="particles-background">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -182,7 +182,7 @@
                 </div>
                 
                 <div class="stats-grid-3d">
-                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card-3d">
                         <div class="stat-icon-3d">👥</div>
                         <div class="stat-content">
                             <h3 class="stat-number">15,247</h3>
@@ -191,7 +191,7 @@
                         </div>
                         <div class="stat-glow"></div>
                     </div>
-                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card-3d">
                         <div class="stat-icon-3d">🏛️</div>
                         <div class="stat-content">
                             <h3 class="stat-number">156</h3>
@@ -200,7 +200,7 @@
                         </div>
                         <div class="stat-glow"></div>
                     </div>
-                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card-3d">
                         <div class="stat-icon-3d">💼</div>
                         <div class="stat-content">
                             <h3 class="stat-number">89</h3>
@@ -209,7 +209,7 @@
                         </div>
                         <div class="stat-glow"></div>
                     </div>
-                    <div class="stat-card-3d" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card-3d">
                         <div class="stat-icon-3d">🤝</div>
                         <div class="stat-content">
                             <h3 class="stat-number">234</h3>
@@ -260,13 +260,6 @@
                 <div class="directory-controls-3d">
                     <div class="search-filters-3d">
                         <input type="text" id="alumniSearch" placeholder="🔍 Search alumni by name, company, skills..." class="search-input-3d">
-                        <div class="filter-chips">
-                            <button class="chip-3d active" data-filter="all">All</button>
-                            <button class="chip-3d" data-filter="engineering">Engineering</button>
-                            <button class="chip-3d" data-filter="business">Business</button>
-                            <button class="chip-3d" data-filter="medical">Medical</button>
-                            <button class="chip-3d" data-filter="entrepreneur">Entrepreneurs</button>
-                        </div>
                     </div>
                 </div>
                 
@@ -298,15 +291,6 @@
                 <div class="section-header-3d">
                     <h2 class="section-title-3d">Career Opportunities</h2>
                     <p class="section-subtitle">Discover your next career move</p>
-                </div>
-                
-                <div class="jobs-controls-3d">
-                    <div class="job-filters">
-                        <button class="job-filter-btn active" data-filter="all">All Jobs</button>
-                        <button class="job-filter-btn" data-filter="full-time">Full Time</button>
-                        <button class="job-filter-btn" data-filter="remote">Remote</button>
-                        <button class="job-filter-btn" data-filter="internship">Internships</button>
-                    </div>
                 </div>
                 
                 <div class="jobs-grid-3d" id="jobsGrid">
@@ -384,7 +368,7 @@
                                     <button type="button" class="amount-btn-3d" data-amount="25000">₹25,000</button>
                                     <button type="button" class="amount-btn-3d" data-amount="custom">Custom</button>
                                 </div>
-                                <input type="number" id="customAmount" class="custom-amount-input" placeholder="Enter custom amount" style="display: none;">
+                                <input type="number" id="customAmount" class="form-input-3d custom-amount-input" placeholder="Enter custom amount" style="display: none;">
                             </div>
                             
                             <div class="form-group-3d">
